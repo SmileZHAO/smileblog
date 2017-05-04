@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>管理后台</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport"/>
+<!-- component/bootstrap 3.3.6 -->
+<link rel="stylesheet" href="../../component/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="../../component/adminlte/libs/font-awesome.min.css"/>
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="../../component/adminlte/libs/ionicons.min.css"/>
+<!-- Theme style -->
+<link rel="stylesheet"
+	href="../../component/adminlte/dist/css/AdminLTE.min.css"/>
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet"
+	href="../../component/adminlte/dist/css/skins/_all-skins.min.css"/>
+<!-- iCheck -->
+<link rel="stylesheet"
+	href="../../component/adminlte/plugins/iCheck/flat/blue.css"/>
+<!-- Morris chart -->
+<link rel="stylesheet"
+	href="../../component/adminlte/plugins/morris/morris.css"/>
+<!-- jvectormap -->
+<link rel="stylesheet"
+	href="../../component/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.css"/>
+<!-- Date Picker -->
+<link rel="stylesheet"
+	href="../../component/adminlte/plugins/datepicker/datepicker3.css"/>
+<!-- Daterange picker -->
+<link rel="stylesheet"
+	href="../../component/adminlte/plugins/daterangepicker/daterangepicker.css"/>
+<!-- component/bootstrap wysihtml5 - text editor -->
+<link rel="stylesheet"
+	href="../../component/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css"/>
+
+<link rel="stylesheet" href="../../css/common.css"/>
+
+<!-- jQuery 2.2.3 -->
+<script src="../../component/adminlte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../../component/adminlte/libs/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with component/bootstrap tooltip -->
+
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../js/myUtil.js"></script>
+<script type="text/javascript" src="../../js/myAce.js"></script>
+<script type="text/javascript" src="../../js/jquery.form.js"></script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="../../component/adminlte/libs/html5shiv.min.js"></script>
+  <script src="../../component/adminlte/libs/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+		<header class="main-header">
+			<!-- Logo -->
+			<a href="#" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>Role</b>Name</span> <!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>角色</b>用户名字</span>
+			</a>
+			<!-- Header Navbar: style can be found in header.less -->
+			<nav class="navbar navbar-static-top">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
+					role="button"> <span class="sr-only">菜单导航</span>
+				</a>
+
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- User Account: style can be found in dropdown.less -->
+						<li class="dropdown user user-menu"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"> <img
+								src="component/adminlte/dist/img/user2-160x160.jpg"
+								class="user-image" alt="用户图片"/> <span
+								class="hidden-xs">管理员</span>
+						</a></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+				<!-- sidebar menu: : style can be found in sidebar.less -->
+				<!-- 主菜单 -->
+				<ul class="sidebar-menu">
+					<li class="header">主菜单</li>
+					<li class="active treeview"><a href="#"> <i
+							class="fa fa-dashboard"></i> <span>测试菜单</span> <span
+							class="pull-right-container"> <i
+								class="fa fa-angle-left pull-right"></i>
+						</span>
+					</a>
+						<ul class="treeview-menu">
+							<li class="active" id="112" url="AceEditer.do"
+								onclick="AddShowTab(this);"><a href="#"><i
+									class="fa fa-circle-o"></i> 新建文章</a></li>
+							<li id="123" url="toQuery.do" onclick="AddShowTab(this);"><a
+								href="#"><i class="fa fa-circle-o"></i>文章管理</a></li>
+						</ul></li>
+				</ul>
+			</section>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+			<!-- Main content -->
+			<section class="content">
+
+				<div class="col-md-12">
+					<!-- Custom Tabs -->
+					<div class="nav-tabs-custom">
+						<ul class="nav nav-tabs" id="tab_nav_header">
+							<li class="active">
+								<!-- 关闭按钮 --> <span class="close-tab glyphicon glyphicon-remove"
+								onclick="closeTab(this);"></span> <a href="#tab_1"
+								data-toggle="tab">首页</a>
+							</li>
+						</ul>
+						<div class="tab-content" id="tab_content">
+							<div class="tab-pane active" id="tab_1">
+								欢迎使用
+							</div>
+							<!-- /.tab-pane -->
+							
+						</div>
+						<!-- /.tab-content -->
+					</div>
+					<!-- nav-tabs-custom -->
+				</div>
+				<!-- /.col -->
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<strong>Copyright &copy; 2014-2016 博客. </strong> All rights reserved.
+		</footer>
+
+		<!-- Control Sidebar -->
+
+		<!-- /.control-sidebar -->
+		<!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- modal -->
+	<div id="modal_div">
+	
+	</div>
+	<!-- ./modal -->
+	<script>
+		$.widget.bridge('uibutton', $.ui.button);
+	</script>
+	<!-- component/bootstrap 3.3.6 -->
+	<script src="../../component/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Morris.js charts -->
+	<script
+		src="../../component/adminlte/libs/raphael-min.js"></script>
+	<!-- <script src="component/adminlte/plugins/morris/morris.min.js"></script> -->
+	<!-- Sparkline -->
+	<script
+		src="../../component/adminlte/plugins/sparkline/jquery.sparkline.min.js"></script>
+	<!-- jvectormap -->
+	<script
+		src="../../component/adminlte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	<script
+		src="../../component/adminlte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	<!-- jQuery Knob Chart -->
+	<script src="../../component/adminlte/plugins/knob/jquery.knob.js"></script>
+<!--  daterangepicker --> 
+	<script
+		src="../../component/adminlte/libs/moment.min.js"></script>
+	<script
+		src="../../component/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<!--  datepicker --> 
+	<script
+		src="../../component/adminlte/plugins/datepicker/bootstrap-datepicker.js"></script>
+	<!-- component/bootstrap WYSIHTML5 -->
+	<script
+		src="../../component/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+	<!-- Slimscroll -->
+	<script
+		src="../../component/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+	<!-- FastClick -->
+	<script src="../../component/adminlte/plugins/fastclick/fastclick.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../../component/adminlte/dist/js/app.min.js"></script>
+
+</body>
+</html>
+

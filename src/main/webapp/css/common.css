@@ -1,0 +1,115 @@
+@CHARSET "UTF-8";
+/* 关闭按钮的样式 */
+.close-tab {
+	font-size: 10px;
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	padding-left: 0px;
+	z-index: 100;
+	cursor: hand;
+	cursor: pointer;
+	color: #94A6B0;
+}
+
+.close-tab:hover {
+	color: #FF7F50;
+	font-size: 12px;
+}
+/* 字体加粗 */
+.fontbold{
+	font-weight:bold;
+}
+/* 字体颜色为红色 */
+.warning{
+	color:red;
+}
+.font-big{
+	font-size:20px;
+}
+.hidden{
+	display:none;
+}
+.bottom{
+   margin-bottom: 20px;
+}
+
+
+.navbar {
+    background-color: #3c8dbc;
+}
+
+.navbar .nav>li>a {
+    color: #fff;
+}
+
+.navbar .nav>li>a:hover {
+    color: #000000;
+}
+
+
+.main-header {
+    color: #fff;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.navbar-brand:hover {
+    color: #000000;
+    background-color: #fff;
+}
+
+.div_center{
+	text-align: center;
+}
+
+.div_content{
+	min-height: 580px;
+}
+/* 设备大于等于768px */
+@media (min-width: 768px){
+	.navbar-brand-min{
+		display: none;
+	}
+	
+	.navbar-brand-max{
+		display: block;
+	}
+	
+}
+
+/* 设备小于767px */
+@media (max-width: 767px){
+	.navbar-brand-min{
+		display: block;
+	}
+	
+	.navbar-brand-max{
+		display: none;
+	}
+	
+}
+/*
+实现图片的居中
+*/
+.img_width img {
+	width:80%;
+	margin: 0 auto;
+    display: block;
+}
+
+.main-footer-my{
+	margin-left: 0px;
+	-webkit-transition: -webkit-transform .3s ease-in-out, margin .3s
+		ease-in-out;
+	-moz-transition: -moz-transform .3s ease-in-out, margin .3s ease-in-out;
+	-o-transition: -o-transform .3s ease-in-out, margin .3s ease-in-out;
+	transition: transform .3s ease-in-out, margin .3s ease-in-out;
+	z-index: 820
+}
+
+.quote{
+	cursor:hand;
+}

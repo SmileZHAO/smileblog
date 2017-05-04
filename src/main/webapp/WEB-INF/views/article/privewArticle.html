@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>博客详情</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport"/>
+</head>
+<body>
+	<!-- container -->
+<!-- 	<div class="container"> -->
+		<div class="row">
+			<h1>奋斗的斗斗的博客</h1>
+		</div>
+		<div class="row">
+			<div>
+				<div class="box box-primary">
+					<div class="box-body" >
+						<div class="post"  th:utext="${content_html}">
+							博客的内容
+						</div>
+					</div>
+					<!-- ./box-body -->
+				</div>
+				<!-- ./box -->
+			</div>
+		</div>
+<!-- 	</div> -->
+	<!-- ./container -->
+
+	<!-- modal -->
+	<div id="modal_div">
+	</div>
+	<!-- ./modal -->
+</body>
+</html>
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<title>文章编辑</title>
+<script src="../../../component/ace/ace.js"></script>
+<script src="../../../component/ace/ext-language_tools.js"></script>
+<script src="../../../component/ace/ext-old_ie.js"></script>
+<script src="../../../component/ace/theme-monokai.js"></script>
+
+<!-- 页面自定义js -->
+<script type="application/javascript" src="../../../js/myAce.js"></script>
+<script type="application/javascript" src="../../../js/jquery.form.js"></script>
+
+<style type="text/css">
+.editor {
+	min-height: 500px;
+/* 	width: auto; */
+}
+
+.push_right {
+	margin-right: 20px;
+}
+.myrow {
+	margin-right:0px;
+	margin-left:0px;
+}
+</style>
+<script type="text/javascript" th:inline="javascript">
+//加载ace
+
+$(function() {
+	myUtil[editor_name()] = loadAce("mdf-editor");
+	/*<![CDATA[*/
+		var cur_act_content = [[${article.content_markdown}]];
+		//console.log(cur_act_content);
+	/*]]>*/
+	myUtil[editor_name()].insert(cur_act_content);
+	var data_space = cur_tabId();
+	// 绑定
+	$("#"+data_space+"  #btn_submit").click(function(e) {
+		debugger;
+		e.preventDefault();
+		upload_file();
+	});
+});
+</script>
+</head>
+<body>
+	<div class="rows">
+		<div class=" myrow">
+			<div class="btn-group push_right">
+				<button type="button" class="btn  btn-primary"  onclick="showSaveModal();">保存文章</button>
+				<button type="button" class="btn  btn-primary"  onclick="showUploadImgModal()">上传图片</button>
+				<button type="button" class="btn  btn-primary"  onclick="privewArticle();">在线预览</button>
+				<button type="button" class="btn  btn-primary" onclick="showPushModal();">发布文章</button>
+				<button type="button" class="btn  btn-primary" onclick="back();">返回</button>
+			</div>
+		</div>
+		<div class=" myrow">
+			<div class="editor" id="mdf-editor"></div>
+		</div>
+	</div>
+	<!-- 保存文章的模态框 -->
+	<div id="saveArticleDiv">
+	 <div class="modal" >
+         <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header" id="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	          <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">保存文章</h4>
+              </div>
+            	<div class="modal-body" id="modal-body">
+            		<div class="row">
+					  <div class="form-group col-sm-12">
+					    <input type="email" class="form-control" id="title" placeholder="文档的标题" th:attr="value=${article.title}"></input>
+					  </div>
+				   </div>
+            	</div>
+              <div class="modal-footer" id="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                  <button type="button" class="btn btn-default " onclick="saveArticle();">保存</button>
+              </div>
+          </div>
+         </div>
+        </div>
+	</div><!-- ./保存文章的模态框 -->
+	<!-- 发布文章的模态框 -->
+	<div id="pushArticleDiv">
+	 <div class="modal" >
+         <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header" id="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        	          <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">发布文章</h4>
+              </div>
+            	<div class="modal-body" id="modal-body">
+            		<div class="row">
+					  <div class="form-group col-sm-12">
+					    <input type="text" class="form-control" id="title" placeholder="文档的标题" th:attr="value=${article.title}"/>
+					  </div>
+					  <div class="form-group col-sm-12">
+					    <input type="text" class="form-control" id="tag" placeholder="标签，使用英文','分隔，例如：java,html" th:attr="value=${article.tag}"/>
+					  </div>
+					  <div class="form-group col-sm-12">
+					    <textarea rows="3" class="form-control" id="abstract_str" placeholder="摘要..." th:text="${article.abstract_str}"></textarea>
+					  </div>
+				   </div>
+            	</div>
+              <div class="modal-footer" id="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                  <button type="button" class="btn btn-default " onclick="pushArticle();">发布</button>
+              </div>
+          </div>
+         </div>
+        </div>
+	</div><!-- ./发布文章的模态框 -->
+	<!-- 上传图片的模态框 -->
+	<div id="uploadImgArticleDiv">
+	 <div class="modal" >
+         <div class="modal-dialog">
+          <div class="modal-content">
+          	  <form action="uploadImg.do"  enctype="multipart/form-data" method="post" target="_self" id="form_submit">
+	              <div class="modal-header" id="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        	          <span aria-hidden="true">&times;</span></button>
+	                <h4 class="modal-title">上传图片</h4>
+	              </div>
+	            	<div class="modal-body" id="modal-body">
+	            		<div class="row">
+						  <div class="form-group col-sm-12">
+						    <input type="file" class="form-control" id="img" placeholder="上传图片" name="img"/>
+						  </div>
+					   </div>
+	            	</div>
+	              <div class="modal-footer" id="modal-footer">
+	                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+	                  <button type="submit" class="btn btn-default " id="btn_submit">上传</button>
+	              </div>
+              </form>
+          </div>
+         </div>
+        </div>
+	</div><!-- ./上传图片的模态框 -->
+	<!-- 预览文章的模态框 -->
+	<div id="privewArticleDiv">
+		<div class="modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" id="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">预览文章</h4>
+					</div>
+					<div class="modal-body" id="modal-body"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- ./预览文章的模态框 -->
+	<!-- 存放隐藏信息 -->
+	<div id="hiddenDiv" style="display:none;">
+		<input type="hidden" id="article_id" th:attr="value=${article.id}"/>
+		<input type="hidden" id="is_push" th:attr="value=${article.is_push}"/>
+		<input type="hidden" id="cur_page" th:attr="value=${article.cur_page}"/>
+	</div>
+</body>
+</html>
